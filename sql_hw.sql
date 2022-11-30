@@ -19,13 +19,19 @@ WHERE amount BETWEEN 3.99 AND 5.99;
 SELECT count(*)
 FROM payment 
 WHERE amount > 3.99 AND amount < 5.99;
+
 -- 3. What film does the store have the most of? search in inventory
 -- Ferris Mother
 SELECT film_id, count(*)
 FROM inventory 
-GROUP BY film_id 
+GROUP BY film_id
 ORDER BY count(*) DESC 
 LIMIT 1;
+
+SELECT film_id, store_id,  count(*)
+FROM inventory 
+GROUP BY film_id, store_id 
+ORDER BY count(*) DESC ;
 
 SELECT title
 FROM film
